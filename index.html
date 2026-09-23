@@ -45,9 +45,7 @@
   .game-item.active { background: #303850; }
   .game-item .meta { color: #888; font-size: 12px; }
   .game-item .players { font-weight: 600; color: #ddd; }
-  .res-win { color: #4caf50; }
-  .res-loss { color: #f44336; }
-  .res-draw { color: #ffc107; }
+  .res-win { color: #4caf50; } .res-loss { color: #f44336; } .res-draw { color: #ffc107; }
   .pill { display: inline-block; padding: 2px 8px; border-radius: 10px;
     font-size: 11px; font-weight: 600; background: #333; color: #ccc; }
   .hint { color: #666; font-size: 12px; margin-top: 8px; }
@@ -58,26 +56,21 @@
   .player-card h3 { margin: 0 0 6px 0; font-size: 15px; color: #ccc; }
   .accuracy { font-size: 30px; font-weight: 700; color: #4a8cff; line-height: 1.1; }
   .game-rating { font-size: 22px; font-weight: 700; color: #f0c040; margin-top: 4px; }
-  .stat-row { display: flex; justify-content: space-between;
-    padding: 3px 0; font-size: 13px; color: #aaa; }
+  .stat-row { display: flex; justify-content: space-between; padding: 3px 0;
+    font-size: 13px; color: #aaa; }
   .stat-row b { color: #ddd; font-weight: 600; }
 
   .layout { display: grid; grid-template-columns: 400px 1fr; gap: 20px; align-items: start; }
   @media (max-width: 900px) { .layout { grid-template-columns: 1fr; } }
   .board-wrap { position: sticky; top: 20px; }
 
-  /* ==== Доска с абсолютным позиционированием фигур ==== */
   .board { position: relative; width: 352px; height: 352px;
-    border: 2px solid #444; border-radius: 4px; overflow: hidden;
-    user-select: none; }
-  .board-squares { display: grid;
-    grid-template-columns: repeat(8, 44px);
+    border: 2px solid #444; border-radius: 4px; overflow: hidden; user-select: none; }
+  .board-squares { display: grid; grid-template-columns: repeat(8, 44px);
     grid-template-rows: repeat(8, 44px); }
   .board-pieces { position: absolute; inset: 0; pointer-events: none; }
-  .sq { display: flex; align-items: center; justify-content: center;
-    position: relative; }
-  .light { background: #ebd8b7; }
-  .dark { background: #b58863; }
+  .sq { display: flex; align-items: center; justify-content: center; position: relative; }
+  .light { background: #ebd8b7; } .dark { background: #b58863; }
   .sq .coord { position: absolute; font-size: 9px; font-weight: 600;
     opacity: .55; color: #333; }
   .sq .coord.file { bottom: 1px; right: 3px; }
@@ -90,25 +83,23 @@
     display: flex; align-items: center; justify-content: center;
     font-size: 32px; line-height: 1; z-index: 2;
     transition: left .3s cubic-bezier(.4,0,.2,1),
-                top .3s cubic-bezier(.4,0,.2,1),
-                opacity .2s; will-change: left, top; }
+                top .3s cubic-bezier(.4,0,.2,1), opacity .2s;
+    will-change: left, top; }
   .piece.moving { z-index: 5; }
   .piece.fade-out { opacity: 0; z-index: 1; }
 
   .playback-controls { display: flex; gap: 6px; align-items: center;
     margin-top: 10px; flex-wrap: wrap; }
-  .playback-controls button { padding: 6px 12px; font-size: 14px; min-width: 44px;
-    background: #333; color: #ddd; }
+  .playback-controls button { padding: 6px 12px; font-size: 14px;
+    min-width: 44px; background: #333; color: #ddd; }
   .playback-controls button:hover:not(:disabled) { background: #444; }
   .playback-controls #btnPlay { background: #4a8cff; color: #fff; min-width: 56px; }
-  .playback-controls #btnPlay:hover { background: #3a7cef; }
   .playback-controls select { padding: 5px 8px; font-size: 13px; }
 
   .board-info { margin-top: 12px; padding: 12px; background: #242424;
     border-radius: 8px; font-size: 13px; color: #bbb;
     border: 1px solid #303030; min-height: 90px; }
-  .board-info .eval { font-size: 26px; font-weight: 700; color: #4a8cff;
-    margin: 4px 0; }
+  .board-info .eval { font-size: 26px; font-weight: 700; color: #4a8cff; margin: 4px 0; }
   .board-info .san { font-family: ui-monospace, monospace; color: #e0e0e0; }
   .board-info .analyzing { color: #f0c040; font-size: 12px; }
 
@@ -120,13 +111,18 @@
   tr.moverow:hover { background: #2c2c2c; }
   tr.moverow.active { background: #303850; }
   .q-Best { color: #4a8cff; font-weight: 600; }
-  .q-Excellent { color: #4caf50; }
-  .q-Good { color: #8bc34a; }
-  .q-Inaccuracy { color: #ffc107; }
-  .q-Mistake { color: #ff9800; font-weight: 600; }
+  .q-Excellent { color: #4caf50; } .q-Good { color: #8bc34a; }
+  .q-Inaccuracy { color: #ffc107; } .q-Mistake { color: #ff9800; font-weight: 600; }
   .q-Blunder { color: #f44336; font-weight: 700; }
   .num { color: #777; font-variant-numeric: tabular-nums; }
   .eval-cell { font-variant-numeric: tabular-nums; font-family: ui-monospace, monospace; }
+
+  #debug {
+    background: #0d0d0d; border: 1px solid #303030; border-radius: 8px;
+    padding: 10px; font-family: ui-monospace, monospace; font-size: 11px;
+    color: #888; max-height: 150px; overflow-y: auto; margin-top: 14px;
+    white-space: pre-wrap; line-height: 1.4;
+  }
 </style>
 </head>
 <body>
@@ -160,14 +156,29 @@
 
 <div id="output"></div>
 
+<div id="debug">Лог движка…</div>
+
 <script src="https://cdn.jsdelivr.net/npm/chess.js@0.10.3/chess.min.js"></script>
 <script>
 'use strict';
 
 /* ============================================================
- *  Stockfish: грузим через Blob + importScripts.
- *  Внутри Blob-воркера importScripts не блокируется CORS,
- *  поэтому это работает и на GitHub Pages, и локально.
+ *  Лог для отладки
+ * ============================================================ */
+const debugEl = document.getElementById('debug');
+const DEBUG_MAX = 200;
+function log(...args) {
+  const s = args.map(a => typeof a === 'string' ? a : JSON.stringify(a)).join(' ');
+  console.log('[SF]', s);
+  const lines = debugEl.textContent.split('\n');
+  lines.push(new Date().toLocaleTimeString() + '  ' + s);
+  if (lines.length > DEBUG_MAX) lines.splice(0, lines.length - DEBUG_MAX);
+  debugEl.textContent = lines.join('\n');
+  debugEl.scrollTop = debugEl.scrollHeight;
+}
+
+/* ============================================================
+ *  Stockfish Worker — прямой, простой, с таймаутом
  * ============================================================ */
 const SF_URLS = [
   'https://cdn.jsdelivr.net/npm/stockfish.js@10.0.2/stockfish.js',
@@ -175,154 +186,65 @@ const SF_URLS = [
   'https://cdnjs.cloudflare.com/ajax/libs/stockfish.js/10.0.2/stockfish.js',
 ];
 
-class Engine {
-  constructor(worker) {
-    this.worker = worker;
-    this.listeners = [];
-    worker.onmessage = (e) => {
-      const line = typeof e.data === 'string' ? e.data : String(e.data);
-      for (const fn of this.listeners.slice()) fn(line);
-    };
-    worker.onerror = (e) => console.error('[SF] Worker error:', e.message || e);
-  }
-  send(cmd) { this.worker.postMessage(cmd); }
-  onLine(fn) {
-    this.listeners.push(fn);
-    return () => {
-      const i = this.listeners.indexOf(fn);
-      if (i >= 0) this.listeners.splice(i, 1);
-    };
-  }
-  waitFor(predicate, timeoutMs = 30000) {
-    return new Promise((resolve, reject) => {
-      const timer = setTimeout(() => { off(); reject(new Error('timeout')); }, timeoutMs);
-      const off = this.onLine((line) => {
-        if (predicate(line)) { clearTimeout(timer); off(); resolve(line); }
-      });
-    });
-  }
-  async init() {
-    this.send('uci');
-    await this.waitFor((l) => l === 'uciok', 20000);
-    this.send('setoption name Threads value 1');
-    this.send('setoption name Hash value 16');
-    this.send('isready');
-    await this.waitFor((l) => l === 'readyok', 10000);
-  }
-  async analyze(fen, depth) {
-    let currentEval = null, currentPV = null;
-    const off = this.onLine((line) => {
-      if (!line.startsWith('info ')) return;
-      if (line.includes(' lowerbound') || line.includes(' upperbound')) return;
-      const cm = line.match(/ score cp (-?\d+)/);
-      const mm = line.match(/ score mate (-?\d+)/);
-      const pm = line.match(/ pv (.+)/);
-      if (cm) currentEval = parseInt(cm[1], 10);
-      else if (mm) {
-        const m = parseInt(mm[1], 10);
-        currentEval = m > 0 ? 10000 - m : -10000 - m;
+async function startWorker(url) {
+  return new Promise((resolve, reject) => {
+    let w;
+    try {
+      log('Создаю Worker:', url);
+      w = new Worker(url);
+    } catch (e) {
+      log('new Worker бросил:', e.message);
+      return reject(e);
+    }
+
+    const listeners = new Set();
+    let settled = false;
+
+    w.onmessage = (e) => {
+      const line = String(e.data == null ? '' : e.data);
+      // Логируем не всё (info-строки слишком частые), только ключевое
+      const t = line.trim();
+      if (t === 'uciok' || t === 'readyok' || t.startsWith('bestmove') ||
+          t.startsWith('id ') || t.startsWith('option ')) {
+        log('←', t);
       }
-      if (pm) currentPV = pm[1].trim().split(/\s+/);
-    });
-    this.send('position fen ' + fen);
-    this.send('go depth ' + depth);
-    await this.waitFor((l) => l.startsWith('bestmove'), 300000);
-    off();
-    return { eval: currentEval, pv: currentPV };
-  }
-  stop() { try { this.send('stop'); } catch (e) {} }
-  terminate() { try { this.worker.terminate(); } catch (e) {} }
+      for (const fn of [...listeners]) {
+        try { fn(line); } catch (err) { log('Listener error:', err.message); }
+      }
+    };
+
+    w.onerror = (err) => {
+      log('Worker error:', err.message || '(no message)');
+      if (!settled) { settled = true; reject(new Error(err.message || 'worker error')); }
+    };
+
+    // Отправляем "uci" и ждём "uciok"
+    const handshakeFn = (line) => {
+      if (line.trim() === 'uciok') {
+        clearTimeout(timer);
+        listeners.delete(handshakeFn);
+        settled = true;
+        log('✓ Движок ответил uciok');
+        resolve({ worker: w, listeners });
+      }
+    };
+    const timer = setTimeout(() => {
+      listeners.delete(handshakeFn);
+      if (!settled) {
+        settled = true;
+        try { w.terminate(); } catch (_) {}
+        reject(new Error('uciok не пришёл за 20 сек'));
+      }
+    }, 20000);
+
+    listeners.add(handshakeFn);
+    log('→ uci');
+    w.postMessage('uci');
+  });
 }
 
-let engine = null;
+let engine = null;      // { worker, listeners }
 let engineReady = false;
-
-// Пробует сначала Blob+importScripts, потом прямой Worker.
-function makeWorkerFromUrl(url) {
-  return new Promise((resolve, reject) => {
-    try {
-      // Схема A: Blob + importScripts (обход CORS)
-      const blob = new Blob(
-        [`try { importScripts(${JSON.stringify(url)}); } catch (e) { self.postMessage('__load_error__:' + e.message); }`],
-        { type: 'application/javascript' }
-      );
-      const blobUrl = URL.createObjectURL(blob);
-      const w = new Worker(blobUrl);
-
-      let settled = false;
-      const timer = setTimeout(() => {
-        if (settled) return;
-        settled = true;
-        try { w.terminate(); } catch (e) {}
-        URL.revokeObjectURL(blobUrl);
-        // Схема B: прямой Worker
-        tryDirectWorker(url).then(resolve).catch(reject);
-      }, 8000);
-
-      w.onmessage = (e) => {
-        if (settled) return;
-        const data = typeof e.data === 'string' ? e.data : String(e.data || '');
-        if (data === 'uciok') {
-          settled = true;
-          clearTimeout(timer);
-          URL.revokeObjectURL(blobUrl);
-          resolve({ worker: w });
-        } else if (data.startsWith('__load_error__')) {
-          settled = true;
-          clearTimeout(timer);
-          try { w.terminate(); } catch (e) {}
-          URL.revokeObjectURL(blobUrl);
-          reject(new Error(data));
-        }
-      };
-      w.onerror = (err) => {
-        if (settled) return;
-        settled = true;
-        clearTimeout(timer);
-        try { w.terminate(); } catch (e) {}
-        URL.revokeObjectURL(blobUrl);
-        tryDirectWorker(url).then(resolve).catch(reject);
-      };
-      w.postMessage('uci');
-    } catch (e) {
-      tryDirectWorker(url).then(resolve).catch(reject);
-    }
-  });
-}
-
-function tryDirectWorker(url) {
-  return new Promise((resolve, reject) => {
-    try {
-      const w = new Worker(url);
-      let settled = false;
-      const timer = setTimeout(() => {
-        if (settled) return;
-        settled = true;
-        try { w.terminate(); } catch (e) {}
-        reject(new Error('timeout'));
-      }, 10000);
-      w.onmessage = (e) => {
-        if (settled) return;
-        const data = typeof e.data === 'string' ? e.data : String(e.data || '');
-        if (data === 'uciok') {
-          settled = true;
-          clearTimeout(timer);
-          resolve({ worker: w });
-        }
-      };
-      w.onerror = (err) => {
-        if (settled) return;
-        settled = true;
-        clearTimeout(timer);
-        try { w.terminate(); } catch (e) {}
-        reject(new Error(err.message || 'worker error'));
-      };
-      w.postMessage('uci');
-    } catch (e) {
-      reject(e);
-    }
-  });
-}
 
 async function ensureEngine(onStatus) {
   if (engineReady) return engine;
@@ -330,28 +252,82 @@ async function ensureEngine(onStatus) {
   for (const url of SF_URLS) {
     try {
       onStatus && onStatus('Загружаю движок: ' + url.split('/')[2] + '…');
-      const { worker } = await makeWorkerFromUrl(url);
-      const eng = new Engine(worker);
-      // Worker уже прислал uciok в процессе makeWorkerFromUrl,
-      // но init() безопасно повторит uci/uciok
-      try {
-        await eng.init();
-      } catch (e) {
-        // Некоторые сборки не отвечают на повторный uci — не критично
-        console.warn('init retry failed, continue anyway:', e);
-      }
-      engine = eng;
+      log('Пробую', url);
+      const { worker, listeners } = await startWorker(url);
+
+      // setoption + isready
+      log('→ setoption Threads 1, Hash 16, isready');
+      worker.postMessage('setoption name Threads value 1');
+      worker.postMessage('setoption name Hash value 16');
+      worker.postMessage('isready');
+
+      await new Promise((resolve, reject) => {
+        const t = setTimeout(() => {
+          listeners.delete(fn);
+          reject(new Error('readyok не пришёл'));
+        }, 10000);
+        const fn = (line) => {
+          if (line.trim() === 'readyok') {
+            clearTimeout(t); listeners.delete(fn); resolve();
+          }
+        };
+        listeners.add(fn);
+      });
+
+      engine = { worker, listeners };
       engineReady = true;
       onStatus && onStatus('Stockfish готов (' + url.split('/')[2] + ')');
-      console.log('[SF] Loaded from', url);
-      return eng;
+      log('✓ Движок готов:', url);
+      return engine;
     } catch (e) {
       lastErr = e;
-      console.warn('[SF] Failed:', url, e);
-      onStatus && onStatus('Не вышло с ' + url.split('/')[2] + ', пробую другой…');
+      log('✗ Не вышло:', e.message);
+      onStatus && onStatus('Не вышло с ' + url.split('/')[2] + ' — пробую другой…');
     }
   }
-  throw new Error('Stockfish не загрузился. ' + (lastErr && lastErr.message || ''));
+  throw new Error('Stockfish не загрузился: ' + (lastErr && lastErr.message || ''));
+}
+
+/* Анализ одной позиции */
+function analyzePosition(eng, fen, depth) {
+  return new Promise((resolve, reject) => {
+    let best = { eval: null, pv: null };
+    const timer = setTimeout(() => {
+      eng.listeners.delete(fn);
+      reject(new Error('анализ не ответил за 60 сек'));
+    }, 60000);
+
+    const fn = (line) => {
+      const t = line.trim();
+      if (t.startsWith('info ')) {
+        if (t.includes(' lowerbound') || t.includes(' upperbound')) return;
+        const cm = t.match(/ score cp (-?\d+)/);
+        const mm = t.match(/ score mate (-?\d+)/);
+        const pm = t.match(/ pv (.+)/);
+        if (cm) best.eval = parseInt(cm[1], 10);
+        else if (mm) {
+          const m = parseInt(mm[1], 10);
+          best.eval = m > 0 ? 10000 - m : -10000 - m;
+        }
+        if (pm) best.pv = pm[1].trim().split(/\s+/);
+      } else if (t.startsWith('bestmove')) {
+        clearTimeout(timer);
+        eng.listeners.delete(fn);
+        resolve(best);
+      }
+    };
+    eng.listeners.add(fn);
+    log('→ position/go depth=' + depth);
+    eng.worker.postMessage('position fen ' + fen);
+    eng.worker.postMessage('go depth ' + depth);
+  });
+}
+
+function stopEngineAnalysis() {
+  if (engine && engine.worker) {
+    log('→ stop');
+    try { engine.worker.postMessage('stop'); } catch (e) {}
+  }
 }
 
 /* ============================================================
@@ -368,7 +344,6 @@ async function fetchChessComGames(username, limit) {
   const data = await r.json();
   const archives = data.archives || [];
   if (!archives.length) throw new Error('У игрока нет партий');
-
   const games = [];
   for (let i = archives.length - 1; i >= 0 && games.length < limit; i--) {
     const resp = await fetch(archives[i], { headers });
@@ -416,15 +391,10 @@ function pieceChar(p) {
            bp:'♟', bn:'♞', bb:'♝', br:'♜', bq:'♛', bk:'♚' }[p.color + p.type] || '';
 }
 function squareToXY(sq) {
-  const file = sq.charCodeAt(0) - 97;
-  const rank = parseInt(sq[1], 10);
-  return { x: file * 44, y: (8 - rank) * 44 };
+  return { x: (sq.charCodeAt(0) - 97) * 44, y: (8 - parseInt(sq[1], 10)) * 44 };
 }
 function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
 
-/* ============================================================
- *  Оценка рейтинга партии
- * ============================================================ */
 function estimateGameRating(accuracy, counts, avgLoss) {
   let base = 900 + (accuracy - 60) * 35;
   if (accuracy >= 90) base = 1500 + (accuracy - 90) * 90;
@@ -438,7 +408,7 @@ function estimateGameRating(accuracy, counts, avgLoss) {
 }
 
 /* ============================================================
- *  Рендер доски
+ *  Доска
  * ============================================================ */
 function renderSquares(squaresEl, fen, highlights) {
   const chess = new Chess(fen);
@@ -474,16 +444,11 @@ function createPieceEl(piecesEl, sq, p, instant) {
   el.dataset.type = p.type;
   el.textContent = pieceChar(p);
   const { x, y } = squareToXY(sq);
-  el.style.left = x + 'px';
-  el.style.top = y + 'px';
+  el.style.left = x + 'px'; el.style.top = y + 'px';
   if (!instant) {
     el.style.opacity = '0';
-    el.style.transition = 'none';
     piecesEl.appendChild(el);
-    requestAnimationFrame(() => {
-      el.style.transition = '';
-      el.style.opacity = '1';
-    });
+    requestAnimationFrame(() => { el.style.opacity = '1'; });
   } else {
     piecesEl.appendChild(el);
   }
@@ -507,20 +472,15 @@ function renderPieces(piecesEl, fen, animate) {
   const used = new Set();
   const toCreate = [];
 
-  // Стабильные (тот же тип/цвет/клетка) — оставляем
   for (const sq of Object.keys(newPos)) {
     const p = newPos[sq];
     const cur = oldMap[sq];
-    if (cur && cur.dataset.color === p.color && cur.dataset.type === p.type) {
-      used.add(cur);
-    }
+    if (cur && cur.dataset.color === p.color && cur.dataset.type === p.type) used.add(cur);
   }
 
-  // Переезды
   for (const sq of Object.keys(newPos)) {
     const p = newPos[sq];
     if (oldMap[sq] && used.has(oldMap[sq])) continue;
-
     const target = squareToXY(sq);
     let best = null, bestD = Infinity;
     for (const oSq of Object.keys(oldMap)) {
@@ -531,7 +491,6 @@ function renderPieces(piecesEl, fen, animate) {
       const d = Math.abs(op.x - target.x) + Math.abs(op.y - target.y);
       if (d < bestD) { bestD = d; best = oEl; }
     }
-
     if (best) {
       used.add(best);
       if (animate) best.classList.add('moving');
@@ -544,20 +503,17 @@ function renderPieces(piecesEl, fen, animate) {
     }
   }
 
-  // Съеденные
   for (const el of oldPieces) {
     if (!used.has(el)) {
       el.classList.add('fade-out');
       setTimeout(() => el.remove(), 260);
     }
   }
-
-  // Новые
   for (const { sq, p } of toCreate) createPieceEl(piecesEl, sq, p, !animate);
 }
 
 /* ============================================================
- *  UI доски — создаётся один раз и переиспользуется
+ *  Board UI
  * ============================================================ */
 function createBoardUI(container) {
   container.innerHTML = `
@@ -578,10 +534,8 @@ function createBoardUI(container) {
         <option value="200">×4</option>
       </select>
     </div>
-    <div class="board-info"></div>
-  `;
+    <div class="board-info"></div>`;
   return {
-    boardEl: container.querySelector('.board'),
     squaresEl: container.querySelector('.board-squares'),
     piecesEl: container.querySelector('.board-pieces'),
     infoEl: container.querySelector('.board-info'),
@@ -595,7 +549,7 @@ function createBoardUI(container) {
 }
 
 /* ============================================================
- *  Анализ партии с живой анимацией
+ *  Анализ с анимацией
  * ============================================================ */
 let stopRequested = false;
 
@@ -607,15 +561,13 @@ async function analyzeWithAnimation(pgnText, depth, board, onProgress) {
   const moves = parser.history({ verbose: true });
   if (!moves.length) throw new Error('В PGN нет ходов');
 
-  // Собираем все позиции
   const boards = [ startFen ? new Chess(startFen) : new Chess() ];
   const cur = startFen ? new Chess(startFen) : new Chess();
   for (const m of moves) { cur.move(m.san); boards.push(new Chess(cur.fen())); }
-
   const fens = boards.map(b => b.fen());
   const total = boards.length;
 
-  // Рисуем стартовую позицию
+  // Стартовый рендер
   renderSquares(board.squaresEl, fens[0], null);
   board.piecesEl.innerHTML = '';
   renderPieces(board.piecesEl, fens[0], false);
@@ -626,49 +578,49 @@ async function analyzeWithAnimation(pgnText, depth, board, onProgress) {
   for (let i = 0; i < total; i++) {
     if (stopRequested) break;
 
-    // Анализ текущей позиции
+    const moveLabel = i === 0 ? 'начальная позиция'
+      : (moves[i-1].color === 'w'
+          ? `${Math.ceil(i/2)}. ${moves[i-1].san}`
+          : `${Math.ceil(i/2)}... ${moves[i-1].san}`);
+
+    // 1. Показываем позицию: фигуры едут на новое место
+    if (i > 0) {
+      const pm = moves[i-1];
+      renderSquares(board.squaresEl, fens[i], [pm.from, pm.to]);
+      renderPieces(board.piecesEl, fens[i], true);
+      await sleep(340);  // ждём, чтобы анимация прошла
+    }
+
+    // 2. Статус "думаю"
+    board.infoEl.innerHTML = `
+      <div><span class="san">${escapeHtml(moveLabel)}</span></div>
+      <div class="analyzing">Думаю… (${i+1}/${total})</div>`;
+    await sleep(20);
+
+    // 3. Анализ
+    let evalHere = 0, pvHere = null;
     if (!boards[i].game_over()) {
-      const res = await engine.analyze(fens[i], depth);
+      const res = await analyzePosition(engine, fens[i], depth);
       let cp = res.eval ?? 0;
       if (boards[i].turn() === 'b') cp = -cp;
-      evals[i] = cp;
-      pvs[i] = res.pv;
+      evalHere = cp;
+      pvHere = res.pv;
     } else {
-      if (boards[i].in_checkmate()) {
-        evals[i] = boards[i].turn() === 'w' ? -10000 : 10000;
-      } else {
-        evals[i] = 0;
-      }
-      pvs[i] = null;
+      evalHere = boards[i].in_checkmate()
+        ? (boards[i].turn() === 'w' ? -10000 : 10000)
+        : 0;
     }
+    evals[i] = evalHere;
+    pvs[i] = pvHere;
 
-    // Показываем позицию на доске
-    if (i > 0) {
-      const prevMove = moves[i - 1];
-      const highlights = [prevMove.from, prevMove.to];
-      renderSquares(board.squaresEl, fens[i], highlights);
-      renderPieces(board.piecesEl, fens[i], true);
-
-      const moveLabel = prevMove.color === 'w'
-        ? `${Math.ceil(i/2)}. ${prevMove.san}`
-        : `${Math.ceil(i/2)}... ${prevMove.san}`;
-      board.infoEl.innerHTML = `
-        <div><span class="san">${escapeHtml(moveLabel)}</span></div>
-        <div class="eval">${formatEval(evals[i])}</div>
-        <div class="analyzing">Анализ: ${i+1}/${total} · глубина ${depth}</div>
-      `;
-
-      // Даём пользователю увидеть движение
-      if (!stopRequested) await sleep(350);
-    } else {
-      board.infoEl.innerHTML = `
-        <div><b>Начальная позиция</b></div>
-        <div class="eval">${formatEval(evals[0])}</div>
-        <div class="analyzing">Анализ: 1/${total} · глубина ${depth}</div>
-      `;
-    }
+    // 4. Показываем результат
+    board.infoEl.innerHTML = `
+      <div><span class="san">${escapeHtml(moveLabel)}</span></div>
+      <div class="eval">${formatEval(evalHere)}</div>
+      <div class="analyzing">(${i+1}/${total})</div>`;
 
     onProgress && onProgress((i + 1) / total, `Анализ: ${i+1}/${total}`);
+    await sleep(80);
   }
 
   // Собираем analyses
@@ -704,19 +656,16 @@ async function analyzeWithAnimation(pgnText, depth, board, onProgress) {
       from: m.from, to: m.to,
     });
   }
-
   return { headers, analyses, fens };
 }
 
 /* ============================================================
- *  Финальный отчёт
+ *  Итог
  * ============================================================ */
 function qualityBreakdown(counts) {
   const order = ['Best','Excellent','Good','Inaccuracy','Mistake','Blunder'];
-  return order.map(q => `
-    <div class="stat-row">
-      <span class="q-${q}">${q}</span><b>${counts[q] || 0}</b>
-    </div>`).join('');
+  return order.map(q => `<div class="stat-row">
+      <span class="q-${q}">${q}</span><b>${counts[q] || 0}</b></div>`).join('');
 }
 
 function renderSummary(headers, analyses) {
@@ -726,10 +675,7 @@ function renderSummary(headers, analyses) {
     if (!list.length) return { acc: 0, counts: {}, avgLoss: 0, rating: 0 };
     const acc = list.reduce((s,a) => s + a.accuracy, 0) / list.length;
     const counts = {}; let totalLoss = 0;
-    for (const a of list) {
-      counts[a.quality] = (counts[a.quality]||0) + 1;
-      totalLoss += a.loss;
-    }
+    for (const a of list) { counts[a.quality] = (counts[a.quality]||0) + 1; totalLoss += a.loss; }
     const avgLoss = totalLoss / list.length;
     return { acc, counts, avgLoss, rating: estimateGameRating(acc, counts, avgLoss) };
   };
@@ -739,34 +685,26 @@ function renderSummary(headers, analyses) {
   el.className = 'summary';
   el.innerHTML = `
     <div class="player-card">
-      <h3>⚪ ${escapeHtml(headers.White || 'Белые')}
-        ${headers.WhiteElo ? `(${headers.WhiteElo})` : ''}</h3>
+      <h3>⚪ ${escapeHtml(headers.White || 'Белые')} ${headers.WhiteElo ? `(${headers.WhiteElo})` : ''}</h3>
       <div class="accuracy">${ws.acc.toFixed(1)}%</div>
       <div class="game-rating">Рейтинг партии: ~${ws.rating}</div>
       <div style="margin-top:10px">${qualityBreakdown(ws.counts)}</div>
       <div class="stat-row" style="margin-top:8px;border-top:1px solid #303030;padding-top:6px">
-        <span>Средняя потеря</span><b>${(ws.avgLoss/100).toFixed(2)}</b>
-      </div>
+        <span>Средняя потеря</span><b>${(ws.avgLoss/100).toFixed(2)}</b></div>
     </div>
     <div class="player-card">
-      <h3>⚫ ${escapeHtml(headers.Black || 'Чёрные')}
-        ${headers.BlackElo ? `(${headers.BlackElo})` : ''}</h3>
+      <h3>⚫ ${escapeHtml(headers.Black || 'Чёрные')} ${headers.BlackElo ? `(${headers.BlackElo})` : ''}</h3>
       <div class="accuracy">${bs.acc.toFixed(1)}%</div>
       <div class="game-rating">Рейтинг партии: ~${bs.rating}</div>
       <div style="margin-top:10px">${qualityBreakdown(bs.counts)}</div>
       <div class="stat-row" style="margin-top:8px;border-top:1px solid #303030;padding-top:6px">
-        <span>Средняя потеря</span><b>${(bs.avgLoss/100).toFixed(2)}</b>
-      </div>
+        <span>Средняя потеря</span><b>${(bs.avgLoss/100).toFixed(2)}</b></div>
     </div>`;
   return el;
 }
 
-/* ============================================================
- *  Плеер + таблица (использует уже созданную доску)
- * ============================================================ */
 function setupPlayerAndTable(board, headers, analyses, fens) {
-  let playbackIndex = 0;
-  let playbackTimer = null;
+  let playbackIndex = 0, playbackTimer = null;
 
   function renderPosition(index, animate) {
     if (index < 0 || index > analyses.length) return;
@@ -780,10 +718,9 @@ function setupPlayerAndTable(board, headers, analyses, fens) {
     renderPieces(board.piecesEl, fen, animate);
 
     if (index === 0) {
-      board.infoEl.innerHTML = `
-        <div><b>Начальная позиция</b></div>
+      board.infoEl.innerHTML = `<div><b>Начальная позиция</b></div>
         <div class="eval">${formatEval(analyses.length ? analyses[0].evalBeforeWhite : 0)}</div>
-        <div class="hint">Жми ▶, ◀, ▶ или наводи на ходы в таблице</div>`;
+        <div class="hint">Жми ▶ ◀ ▶ или наводи на ходы в таблице</div>`;
     } else {
       const a = analyses[index - 1];
       board.infoEl.innerHTML = `
@@ -794,13 +731,9 @@ function setupPlayerAndTable(board, headers, analyses, fens) {
         <div>Потеря: ${a.loss === 0 ? '0' : '-' + (a.loss/100).toFixed(2)}</div>
         <div>Точность: ${a.accuracy.toFixed(1)}%</div>`;
     }
-
     playbackIndex = index;
-    board.btnFirst.disabled = index === 0;
-    board.btnPrev.disabled  = index === 0;
-    board.btnNext.disabled  = index === analyses.length;
-    board.btnLast.disabled  = index === analyses.length;
-
+    board.btnFirst.disabled = board.btnPrev.disabled = index === 0;
+    board.btnNext.disabled = board.btnLast.disabled = index === analyses.length;
     document.querySelectorAll('#movesTable tr.moverow').forEach(tr => {
       tr.classList.toggle('active', parseInt(tr.dataset.index, 10) === index - 1);
     });
@@ -820,7 +753,6 @@ function setupPlayerAndTable(board, headers, analyses, fens) {
       renderPosition(playbackIndex + 1, true);
     }, speed);
   }
-
   board.btnFirst.onclick = () => { stopPlayback(); renderPosition(0, true); };
   board.btnPrev.onclick  = () => { stopPlayback(); renderPosition(Math.max(0, playbackIndex - 1), true); };
   board.btnNext.onclick  = () => { stopPlayback(); renderPosition(Math.min(analyses.length, playbackIndex + 1), true); };
@@ -828,16 +760,13 @@ function setupPlayerAndTable(board, headers, analyses, fens) {
   board.btnPlay.onclick  = () => { playbackTimer ? stopPlayback() : startPlayback(); };
   board.speedSel.onchange = () => { if (playbackTimer) { stopPlayback(); startPlayback(); } };
 
-  // Таблица
   const table = document.createElement('table');
   table.id = 'movesTable';
-  table.innerHTML = `
-    <thead><tr>
-      <th>#</th><th>Ход</th><th>Оценка</th><th>Потеря</th>
-      <th>Качество</th><th>Лучший</th><th>Точность</th>
-    </tr></thead><tbody></tbody>`;
+  table.innerHTML = `<thead><tr>
+    <th>#</th><th>Ход</th><th>Оценка</th><th>Потеря</th>
+    <th>Качество</th><th>Лучший</th><th>Точность</th>
+  </tr></thead><tbody></tbody>`;
   const tbody = table.querySelector('tbody');
-
   analyses.forEach((a) => {
     const tr = document.createElement('tr');
     tr.className = 'moverow';
@@ -856,13 +785,11 @@ function setupPlayerAndTable(board, headers, analyses, fens) {
       <td class="q-${a.quality}">${a.quality}</td>
       <td>${escapeHtml(a.bestSan)}</td>
       <td class="eval-cell">${a.accuracy.toFixed(1)}%
-        <span style="display:inline-block;height:6px;border-radius:3px;background:#4a8cff;vertical-align:middle;margin-left:6px;width:${barW}px"></span>
-      </td>`;
+        <span style="display:inline-block;height:6px;border-radius:3px;background:#4a8cff;vertical-align:middle;margin-left:6px;width:${barW}px"></span></td>`;
     tr.addEventListener('mouseenter', () => { stopPlayback(); renderPosition(a.index + 1, true); });
     tr.addEventListener('click',      () => { stopPlayback(); renderPosition(a.index + 1, true); });
     tbody.appendChild(tr);
   });
-
   return { table, renderPosition };
 }
 
@@ -908,8 +835,7 @@ function renderGamesList(games, username) {
     const timeClass = g.time_class || '?';
     const endTime = g.end_time ? new Date(g.end_time * 1000) : null;
     const dateStr = endTime ? endTime.toLocaleDateString('ru-RU', {
-      day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit'
-    }) : '?';
+      day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' }) : '?';
     const isWhite = white.toLowerCase() === lowerUser;
     const userResult = isWhite ? g.white.result : g.black.result;
     let resClass = 'res-draw', resText = 'ничья';
@@ -963,7 +889,6 @@ analyzeBtn.addEventListener('click', async () => {
   outputEl.innerHTML = '';
   statusEl.textContent = 'Инициализация движка…';
 
-  // Сразу создаём layout: доска слева, справа — заглушка
   const layout = document.createElement('div');
   layout.className = 'layout';
   outputEl.appendChild(layout);
@@ -977,7 +902,6 @@ analyzeBtn.addEventListener('click', async () => {
   rightWrap.innerHTML = '<div class="section"><h2>Результаты появятся здесь</h2><div class="hint">Пока идёт анализ — фигурки ходят на доске слева.</div></div>';
   layout.appendChild(rightWrap);
 
-  // Пустая стартовая доска, чтобы пользователь сразу видел
   const startBoard = new Chess();
   renderSquares(board.squaresEl, startBoard.fen(), null);
   renderPieces(board.piecesEl, startBoard.fen(), false);
@@ -987,6 +911,7 @@ analyzeBtn.addEventListener('click', async () => {
 
   try {
     await ensureEngine((msg) => { engineStatus.textContent = msg; });
+    board.infoEl.innerHTML = '<div class="hint">Движок готов. Начинаю анализ…</div>';
     statusEl.textContent = 'Анализирую партию…';
 
     const { headers, analyses, fens } = await analyzeWithAnimation(pgn, depth, board, (p, msg) => {
@@ -999,7 +924,6 @@ analyzeBtn.addEventListener('click', async () => {
       ? `Остановлено. Ходов: ${analyses.length}.`
       : `Готово. Ходов: ${analyses.length}. Жми ▶ или наводи на ходы.`;
 
-    // Собираем финальный отчёт: сводка сверху + таблица справа
     const summary = renderSummary(headers, analyses);
     outputEl.insertBefore(summary, layout);
 
@@ -1008,13 +932,13 @@ analyzeBtn.addEventListener('click', async () => {
     rightWrap.appendChild(table);
     renderPosition(0, false);
 
-    // Включаем кнопки
     board.btnFirst.disabled = board.btnPrev.disabled = false;
     board.btnPlay.disabled = board.btnNext.disabled = board.btnLast.disabled = false;
 
-    engineStatus.textContent = engineStatus.textContent + ' · Анализ завершён';
+    engineStatus.textContent += ' · Анализ завершён';
   } catch (err) {
     console.error(err);
+    log('ОШИБКА: ' + err.message);
     statusEl.textContent = 'Ошибка: ' + err.message;
     engineStatus.textContent = 'Ошибка: ' + err.message;
     board.infoEl.innerHTML = `<div style="color:#f44336">Ошибка: ${escapeHtml(err.message)}</div>`;
@@ -1025,12 +949,14 @@ analyzeBtn.addEventListener('click', async () => {
 
 stopBtn.addEventListener('click', () => {
   stopRequested = true;
-  if (engine) engine.stop();
+  stopEngineAnalysis();
   statusEl.textContent = 'Останавливаю…';
 });
 
 window.addEventListener('beforeunload', () => {
-  if (engine) engine.terminate();
+  if (engine && engine.worker) {
+    try { engine.worker.postMessage('quit'); engine.worker.terminate(); } catch (e) {}
+  }
 });
 </script>
 </body>
